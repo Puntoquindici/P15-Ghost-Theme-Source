@@ -1,5 +1,22 @@
 <footer class="gh-footer{{#match @custom.header_and_footer_color "Accent color"}} has-accent-color{{/match}} gh-outer">
-    <script src="/js/iubendaGhost.js"></script>
+    <script src="/js/iubenda/iubenda-install.js" type="module"></script>
+    <script type="module">
+        document.addEventListener('DOMContentLoaded', function(_event) {
+            // force external links to open to new page + 
+            // add iubenda class for cookie preferences button
+            const links = document.getElementsByTagName('a')
+            for(let el of links) {
+                console.log(el)
+                if(el.attributes['target'] == undefined && !el.href.startsWith('https://www.myarstudio.cloud')) {
+                    el.setAttribute('target', '_blank')
+                }
+                // iubenda cookie preferences button
+                if(el.parentElement.classList.contains('nav-cookie-preferences')) {
+                    el.classList.add('iubenda-cs-preferences-link')
+                }
+            }
+        })
+    </script>
 
     <div class="gh-footer-inner gh-inner">
 
@@ -15,7 +32,7 @@
                 {{navigation type="secondary"}}
             </nav>
             <div class="gh-footer-copyright">
-                <p><a href="https://www.puntoquindici.it">Puntoquindici srl </a> - VAT ID: 04509530236</p>
+                <p><a href="https://www.puntoquindici.it" target="_blank">Puntoquindici srl </a> - VAT ID: 04509530236</p>
                 <p>&copy; Copyright 2024. All rights reserved.</p>
             </div>
         </div>
