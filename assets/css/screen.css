@@ -50,15 +50,16 @@ production stylesheet in assets/built/screen.css
 /* 1. Variables
 /* ---------------------------------------------------------- */
 
+/* TODO: use My AR Studio colors */
 :root {
     --color-white: #fff;
     --color-lighter-gray: rgb(0 0 0 / 0.05);
     --color-light-gray: #e6e6e6;
     --color-mid-gray: #ccc;
     --color-dark-gray: #444;
-    --color-darker-gray: #15171a;
+    --color-darker-gray: #000000;
     --color-black: #000;
-    --color-primary-text: var(--color-darker-gray);
+    --color-primary-text: var(--color-black);
     --color-secondary-text: rgb(0 0 0 / 0.55);
     --color-border: rgb(0 0 0 / 0.08);
     --color-dark-border: rgb(0 0 0 / 0.55);
@@ -69,6 +70,9 @@ production stylesheet in assets/built/screen.css
     --container-width: 1320px;
     --container-gap: clamp(24px, 1.7032rem + 1.9355vw, 48px);
     --grid-gap: 42px;
+    /* My AR Studio */ 
+    --color-highlight: #00b0be;
+    --color-darkgray: #33323d;
 }
 
 :root.has-light-text,
@@ -187,7 +191,7 @@ a {
 }
 
 a:hover {
-    opacity: 0.8;
+    color: var(--color-highlight);
 }
 
 .gh-button {
@@ -448,15 +452,15 @@ button.gh-form-input {
 
 .gh-navigation {
     height: 100px;
-    font-size: 1.5rem;
-    font-weight: 550;
+    font-size: 14px;
+    font-weight: 400;
     background-color: var(--background-color);
     color: var(--color-darker-gray);
 }
 
-.gh-navigation :is(.gh-navigation-logo, a:not(.gh-button), .gh-icon-button) {
+/* .gh-navigation :is(.gh-navigation-logo, a:not(.gh-button), .gh-icon-button) {
     color: inherit;
-}
+} */
 
 .gh-navigation-inner {
     display: grid;
@@ -2746,12 +2750,12 @@ figcaption a {
 
 .gh-footer {
     margin-top: 12vw;
-    font-size: 1.5rem;
+    font-size: 14px;
     color: var(--color-darker-gray);
 }
 
-.gh-footer a:not(.gh-button) {
-    color: inherit;
+.gh-footer a:not(.gh-button):hover {
+    color: var(--color-highlight);
 }
 
 /* 21.1 Footer styles */
@@ -2778,7 +2782,7 @@ figcaption a {
     column-gap: 32px;
     margin-bottom: 100px;
     padding-block: 28px;
-    font-weight: 550;
+    font-weight: 400;
     border-block: 1px solid var(--color-border);
 }
 

@@ -1,3 +1,24 @@
+# P15
+Customized Ghost Source theme
+## CSS
+- edit files in assets/css
+- to build:
+```sh
+docker exec puntoquindici-ghost-1 /bin/bash -c "cd content/themes/p15Source && yarn pretest"
+```
+
+## GIT
+connect as root with flag -A (pass ssh keys)
+```sh
+# ssh-add all required keys on local machine
+ssh root@www.myarstudio.cloud -A
+```
+
+
+------------------------------------------------------------------------------------------------------------------------------
+
+
+
 # Source
 
 The default theme for [Ghost](http://github.com/tryghost/ghost/). This is the latest development version of Source! If you're just looking to download the latest release, head over to the [releases](https://github.com/TryGhost/Source/releases) page.
