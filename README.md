@@ -4,6 +4,9 @@ Customized Ghost Source theme
 - edit files in assets/css
 - to build:
 ```sh
+# production
+docker exec puntoquindici-ghost-1 /bin/bash -c "cd content/themes/p15Source && yarn pretest"
+# staging
 docker exec puntoquindici-ghost-1 /bin/bash -c "cd content/themes/p15Source && yarn pretest"
 ```
 
@@ -11,7 +14,24 @@ docker exec puntoquindici-ghost-1 /bin/bash -c "cd content/themes/p15Source && y
 connect as root with flag -A (pass ssh keys)
 ```sh
 # ssh-add all required keys on local machine
-ssh root@www.myarstudio.cloud -A
+ssh puntoquindici@www.myarstudio.cloud -A
+# on www.myarstudio.cloud server
+cd /home/puntoquindici/blog/themes/p15Source
+git -c user.name="Luca Perusi" -c user.email="luca@puntoquindici.it" commit -m "_MESSAGE_HERE_"
+```
+
+## STAGING STRIPES
+To immediately recognize the staging website we added stripes in the background of the header.
+In ghost we have to patch the admin css.
+```sh
+docker cp puntoquindici-ghost-dev-1:/var/lib/ghost/versions/5.82.2/core/built/admin/assets/ghost-f84b3f229da06680df6c13ebd46ab671.css ghost-admin.css
+cp ghost-admin.css ghost-admin.css.bkp
+vim ghost-admin.css
+# add css property to 
+# .gh-editor-header
+# .gh-nav-menu
+# background: repeating-linear-gradient(-45deg,rgba(0,0,0,.1),rgba(0,0,0,.1) 15px,rgba(255,235,0,.2) 0,rgba(255,235,0,.2) 30px);
+docker cp ghost-admin.css puntoquindici-ghost-dev-1:/var/lib/ghost/versions/5.82.2/core/built/admin/assets/ghost-f84b3f229da06680df6c13ebd46ab671.css
 ```
 
 

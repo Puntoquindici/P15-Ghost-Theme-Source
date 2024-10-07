@@ -391,6 +391,10 @@ button.gh-form-input {
     }
 }
 
+.mars-staging {
+    background: repeating-linear-gradient(-45deg,rgba(0,0,0,.1),rgba(0,0,0,.1) 15px,rgba(255,235,0,.2) 0,rgba(255,235,0,.2) 30px);
+}
+
 /* 5. Layout
 /* ---------------------------------------------------------- */
 
@@ -2110,6 +2114,36 @@ Search                         LOGO                    Login Subscribe
     margin-top: 0;
 }
 
+/* 14.4. My AR Studio Custom Success Stories */
+.mars-css-header {
+    display: flex;
+    gap: 2rem;
+}
+.mars-css-header img {
+    display: block;
+    max-height: 100px;
+    max-width: 200px;
+    object-fit: contain;
+}
+.mars-css-header a {
+    display: block;
+    margin-top: 1rem;
+    text-align: center;
+}
+.mars-css-company-card {
+    background-color: lightgray;
+    padding: 3rem;
+}
+.mars-2cols-img-left {
+    display: flex;
+}
+.mars-2cols-img-left img {
+    display: block;
+    max-width: 200px;
+    object-fit: contain;
+    margin-right: 2rem;
+}
+
 /* 15. Content
 /* ---------------------------------------------------------- */
 
@@ -2528,7 +2562,6 @@ figcaption a {
 
 .gh-archive-inner {
     display: grid;
-    grid-template-columns: 1fr 1fr;
     gap: var(--grid-gap);
     grid-column: 1 / -1;
     padding-bottom: clamp(40px, 2.73vw + 29.09px, 64px);
@@ -2538,6 +2571,7 @@ figcaption a {
 .gh-archive.has-image .gh-archive-inner {
     align-items: center;
     grid-column: 1 / -1;
+    grid-template-columns: 1fr 1fr;
 }
 
 .gh-archive:not(.has-sidebar):not(.has-image) .gh-archive-inner {
